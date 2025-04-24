@@ -17,9 +17,18 @@ const geistMono = localFont({
   weight: "100 900",
 });
 
+// Update Metadata for PWA theme color
 export const metadata: Metadata = {
   title: "¡Pura Vida! | Costa Rica Slots",
   description: "Have fun playing slots in Costa Rica. ¡Pura Vida!",
+  manifest: "/manifest.json", // Add manifest link here
+  themeColor: "#22c55e", // Match theme_color in manifest
+  appleWebApp: {
+    // Add iOS specific settings
+    capable: true,
+    statusBarStyle: "black-translucent", // Or 'default', 'black'
+    title: "CR Slots",
+  },
 };
 
 export default function RootLayout({
