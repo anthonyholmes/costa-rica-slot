@@ -123,6 +123,12 @@ export default function SlotMachine() {
               checkWin(finalReelsState);
             }
             setIsSpinning(false);
+
+            // Stop the spin sound when the last reel stops
+            if (spinSound.current) {
+              spinSound.current.pause();
+              spinSound.current.currentTime = 0; // Reset for next time
+            }
           }, 300); // Short delay to allow visual settling
         }
       }, stopTime);
