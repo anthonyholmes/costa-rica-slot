@@ -76,7 +76,7 @@ export default function SlotMachine() {
     }
 
     // Deduct credits
-    setCredits((prev) => prev - 10);
+    // setCredits((prev) => prev - 10);
     setIsSpinning(true);
     setShowWin(false);
 
@@ -178,11 +178,11 @@ export default function SlotMachine() {
 
   return (
     // Add max-width and center the main container
-    <div className="flex flex-col items-center max-w-lg mx-auto w-full relative ">
-      <div className="top-0 left-0 right-0 flex justify-center">
-        <Image src={costaRicaSign} alt="Costa Rica Sign" className="" />
+    <div className="flex flex-col items-center max-w-lg mx-auto w-full relative px-3">
+      <div className="flex justify-center">
+        <Image src={costaRicaSign} alt="Costa Rica Sign" className="-mt-3" />
       </div>
-      <Card className="w-full bg-zinc-800 border-zinc-700 relative overflow-hidden -mt-32">
+      <Card className="w-full bg-zinc-800 border-zinc-700 relative overflow-hidden -mt-24 md:-mt-32 gap-0">
         <div className="absolute inset-0 bg-[url('/wood.png')] bg-cover bg-center opacity-80 pointer-events-none z-0"></div>
         {/* Reels container - Adjust margin if needed */}
         <div className="flex justify-center gap-1 my-4 relative">
@@ -263,7 +263,7 @@ export default function SlotMachine() {
           )}
         </div>
 
-        <div className="flex justify-between items-center w-full relative px-16">
+        {/* <div className="justify-between items-center w-full relative px-3 md:px-16 hidden">
           <Badge variant="outline" className="text-lg px-4 py-2 bg-black/40 text-white border-none">
             <Coins className="mr-2 size-5 text-yellow-400" />
             <span>{credits} Credits</span>
@@ -272,24 +272,21 @@ export default function SlotMachine() {
           <Button variant="outline" onClick={addCredits} className="bg-black/40 text-lg border-none text-white">
             <span className="px-4 py-6 ">Add Credits</span>
           </Button>
-        </div>
+        </div> */}
 
-        {/* Spin button */}
-        <div className="flex justify-center mt-6 mb-4 relative">
-          {" "}
-          {/* Added mb-4 for spacing */}
+        <div className="flex justify-center relative">
           <Button
             onClick={spin}
             disabled={isSpinning}
             className={cn(
               "text-white font-bold py-6 px-10 rounded-full text-xl shadow-lg transition-all duration-300 ease-in-out",
-              "bg-gradient-to-br from-green-500 to-green-700 hover:from-green-600 hover:to-green-800", // Vibrant green gradient
+              "bg-black/50",
               "focus:outline-none focus:ring-4 focus:ring-green-300 dark:focus:ring-green-800", // Focus ring
               "disabled:opacity-60 disabled:cursor-not-allowed",
               !isSpinning && "animate-pulse-slow" // Add a slow pulse when active
             )}
           >
-            {isSpinning ? "Spinning..." : "SPIN (10 Credits)"}
+            {isSpinning ? "Spinning..." : "SPIN TO WIN"}
           </Button>
         </div>
       </Card>
@@ -300,10 +297,16 @@ export default function SlotMachine() {
       //   'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       // } */}
 
-      <div className="text-zinc-400 text-sm text-center mt-4">
-        {/* Update win description */}
+      <div className="text-white text-sm text-center mt-4 bg-black/50 p-4 rounded-lg shadow-lg space-y-3 text-balance">
         <p>Match 3 symbols on the center line to win!</p>
-        <p className="mt-1">The Triangle is the highest paying symbol!</p>
+        <p>
+          Made with ❤️ by{" "}
+          <a href="https://antlur.co" className="underline">
+            Anthony Holmes
+          </a>{" "}
+          for Lissette and Giancarlo's Multicultural Night
+        </p>
+        <p>¡PURA VIDA!</p>
       </div>
     </div>
   );
