@@ -196,7 +196,7 @@ export default function SlotMachine() {
                 // Keep fixed dimensions for the main reel container for now
                 // Percentage heights require a defined parent height, which the Card provides,
                 // but managing aspect ratio and symbol visibility gets complex.
-                "w-24 h-72 md:w-32 md:h-109", // Base, md sizes
+                "w-24 h-73 md:w-32 md:h-109", // Base, md sizes
                 "bg-black rounded-md flex flex-col items-center relative overflow-hidden border-2",
                 reel.spinning ? "border-blue-500 shadow-[0_0_15px_theme(colors.blue.500/70)]" : "border-zinc-600"
               )}
