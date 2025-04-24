@@ -29,7 +29,16 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased flex flex-col`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} min-h-screen antialiased flex flex-col`}
+        style={{
+          backgroundImage: "url('/background.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+          backgroundAttachment: "fixed",
+        }}
+      >
         <SkipToMain />
         {/* <Header /> */}
         <main id="main" className="grow">
