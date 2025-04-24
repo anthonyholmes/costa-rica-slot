@@ -9,6 +9,7 @@ import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import Image from "next/image";
 import costaRicaSign from "@/public/costa-rica-sign.png";
+import { sendGAEvent } from "@next/third-parties/google";
 
 // Define symbols with their values
 const SYMBOLS = [
@@ -74,6 +75,8 @@ export default function SlotMachine() {
       });
       return;
     }
+
+    sendGAEvent("event", "spin");
 
     // Deduct credits
     // setCredits((prev) => prev - 10);
